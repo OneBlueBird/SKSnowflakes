@@ -19,6 +19,10 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 # Let's put a pick list here so they can pick the fruit they want to include 
 ## streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 
-streamlit.multiselect('Pick some fruits: ', list(my_fruit_list.index),['Apple', 'Avocado', 'Banana', 'Cantaloupe', 'Grapefruit', 'Grapes', 'Honeydew', 'Kiwifruit', 'Lemon', 'Lime', 'Nectarine', 'Orange', 'Peach', 'Pear', 'Pineapple', 'Plums', 'Strawberries', 'Cherries', 'Tangerine', 'Watermelon']);
-
+## The below line will pre-select Fruits and keep it ready. You can de-select a fruit
+fruits_selected = streamlit.multiselect('Pick some fruits: ', list(my_fruit_list.index),['Apple', 'Avocado', 'Banana', 'Cantaloupe', 'Grapefruit', 'Grapes', 'Honeydew', 'Kiwifruit', 'Lemon', 'Lime', 'Nectarine', 'Orange', 'Peach', 'Pear', 'Pineapple', 'Plums', 'Strawberries', 'Cherries', 'Tangerine', 'Watermelon']);
 streamlit.dataframe(my_fruit_list)
+
+## The below line will collect fruits a user selects and then display them accordingly
+fruits_to_show = my_fruit_list_loc[fruits_selected]
+streamlit.dataframe(fruits_to_show)
