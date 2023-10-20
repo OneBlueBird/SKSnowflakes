@@ -2,6 +2,7 @@
 import streamlit
 import pandas
 import requests;
+import snowflake.connector;
 
 ## print("Hello, World - Streamlit");
 streamlit.title('My Parents New Healthy Diner');
