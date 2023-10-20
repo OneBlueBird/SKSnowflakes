@@ -51,18 +51,18 @@ try:
     if not fruit_choice:
         streamlit.error("Please select a fruit to get information.");
     else:
-        streamlit.write('The user entered ', fruit_choice)
-        streamlit.header('Fruityvise Fruit Advice');
- 	back_from_funtion = get_fruityvice_data(fruit_choice)
-        streamlit.dataframe(back_from_funtion);
-        ##fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-        ##fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-        ##streamlit.dataframe(fruityvice_normalized)      
-        # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-        # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+"kiwi");
-        #  streamlit.text(fruityvice_response.json())
+       streamlit.write('The user entered ', fruit_choice)
+       streamlit.header('Fruityvise Fruit Advice');
+       back_from_funtion = get_fruityvice_data(fruit_choice)
+       streamlit.dataframe(back_from_funtion);
+       ##fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+       ##fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+       ##streamlit.dataframe(fruityvice_normalized)      
+       # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+       # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+"kiwi");
+       #  streamlit.text(fruityvice_response.json())
 except URLError as e:
-	streamlit.error();
+    streamlit.error();
 
 # write your own comment -what does the next line do? 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
