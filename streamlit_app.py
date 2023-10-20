@@ -1,8 +1,19 @@
 # Created main python file
+
+# import streamlit
 import streamlit
+
+#import pandas
 import pandas
+
+#import requests
 import requests;
+
+#import snowflake.connector
 import snowflake.connector;
+
+#import URLError
+from urllib.error import URLError;
 
 ## print("Hello, World - Streamlit");
 streamlit.title('My Parents New Healthy Diner');
@@ -75,14 +86,12 @@ streamlit.write('Thanks for adding', fruit_choice1);
 ## This will not work correctly, but just go with it for now
 my_cur.execute("insert into fruit_load_list values ('from streamlit')");
 
-# don't run anything past here while we troubleshoot
-streamlit.stop();
-
-import snowflake.connector
-
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"]);
 my_cur = my_cnx.cursor();
 my_cur.execute("select * from fruit_load_list");
 my_data_rows = my_cur.fetchall();
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows);
+
+# don't run anything past here while we troubleshoot
+streamlit.stop();
